@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'DancingScriptRegular';
+  src: url('./fonts/DancingScript-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'DancingScriptBold';
+  src: url('./fonts/DancingScript-Bold.ttf');
+}
+
+.DancingScriptRegular {
+  font-family: DancingScriptRegular;
+}
+
+.DancingScriptBold {
+  font-family: DancingScriptBold;
+}

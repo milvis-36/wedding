@@ -1,0 +1,92 @@
+:root {
+  /* --main-bg-color: #ffd9e4; */
+  --main-bg-color: #f68a7c;
+
+  --main-bg-color-transparent: #ffd9e478;
+
+  /* --main-color: #034537; */
+  --main-color: #034537;
+  --main-color-accent: #b7ebe0;
+
+  --main-content-width: 600px;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-color) var(--main-color-accent);
+}
+
+::-webkit-scrollbar {
+  background: var(--main-color-accent);
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+}
+
+.left-content {
+  color: var(--main-color-accent);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 500px;
+  right: var(--main-content-width);
+  background-image: url('./images/invitation.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-shadow: 2px 2px 7px #886d4e;
+}
+
+.right-content {
+  min-width: var(--main-content-width);
+  margin-left: calc(100% - var(--main-content-width));
+
+  /*background-image: url('./images/pivonka2-medium.png');*/
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  border-left: solid var(--main-color) 1px;
+}
+
+.names {
+  font-size: 80px;
+}
+
+.item-web {
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.btn-web {
+  color: var(--main-color);
+  border-color: var(--main-color);
+  background-color: var(--main-bg-color);
+}
+
+.btn-web:hover,
+.btn-web:active {
+  background-color: var(--main-color-accent);
+  border-color: var(--main-color);
+}
+
+.focused-web:focus {
+  box-shadow: 0 0 0 2px var(--main-color-accent);
+}
+
+@media screen and (max-width: 1150px) {
+  .left-content {
+    position: relative;
+    width: 100%;
+    border-right-style: unset;
+    background-size: initial;
+  }
+
+  .right-content {
+    margin-left: 0;
+  }
+}

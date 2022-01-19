@@ -1,0 +1,42 @@
+.bell-icon {
+  background-color: var(--main-bg-color);
+  box-shadow: 0px 0px 15px 15px var(--main-bg-color);
+  border-radius: 50px;
+  color: var(--main-color);
+  z-index: 10;
+}
+
+.bell-icon:hover {
+  color: var(--main-color-accent);
+  cursor: pointer;
+}
+
+.bell-icon:hover > {
+  animation-duration: 2s;
+  animation-name: pulsing-bell;
+  animation-iteration-count: 1;
+}
+
+.bell-icon:hover > svg {
+  animation-duration: 2s;
+  animation-name: pulsing-bell;
+  animation-iteration-count: 1;
+}
+
+@keyframes pulsing-bell {
+  from {
+    transform: rotate(25deg);
+  }
+
+  50% {
+    transform: rotate(-25deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+.notification-div {
+  z-index: 100;
+}

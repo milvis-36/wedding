@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="cs-CZ">
   <head>
+    <title>Svatba M+M</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="robots" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="bingbot" content="noindex" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- CSS only -->
     <link
@@ -12,78 +24,36 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
-    <style>
-      :root {
-        --main-bg-color: #ffd9e4;
-        --main-color: #034537;
-        --main-color-accent: #b7ebe0;
-
-        scrollbar-width: thin;
-        scrollbar-color: var(--main-color) var(--main-color-accent);
-      }
-
-      ::-webkit-scrollbar {
-        background: var(--main-color-accent);
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: var(--main-color);
-      }
-
-      body {
-        background-color: var(--main-bg-color);
-        color: var(--main-color);
-      }
-
-      .bell-icon {
-        background-color: var(--main-bg-color);
-        box-shadow: 0px 0px 15px 15px var(--main-bg-color);
-        border-radius: 50px;
-      }
-
-      .bell-icon > svg {
-        animation-duration: 3s;
-        animation-name: pulsing-bell;
-        animation-iteration-count: 1;
-      }
-
-      @keyframes pulsing-bell {
-        from {
-          transform: rotate(25deg);
-        }
-
-        50% {
-          transform: rotate(-25deg);
-        }
-
-        to {
-          transform: rotate(25deg);
-        }
-      }
-
-      .left-content {
-        max-width: 760px;
-      }
-
-      h1 {
-        /* height: 2000px; */
-      }
-    </style>
-
-    <title>Svatba Monča a Milan</title>
+    <link href="./assets/fonts.css" rel="stylesheet" />
+    <link href="./assets/styles.css" rel="stylesheet" />
+    <link href="./assets/notifications.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="container-fluid vh-100">
+    <div class="vh-100">
       <!-- Notification row -->
       <div class="notification-div position-fixed top-0 start-0 end-0">
         <div class="position-relative collapse show collapse-notification m-2">
           <div class="alert alert-warning" role="alert">
-            Došlo pivo, už bude jen voda!
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-info-circle position-absolute top-50 start-0 translate-middle-y ms-3"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+              <path
+                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+              />
+            </svg>
+
+            <span class="fs-5 text ms-5 notification-content"></span>
 
             <button
-              class="btn btn-close position-absolute end-0 me-2"
+              class="btn btn-close position-absolute position-absolute top-50 end-0 translate-middle close-notification"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target=".collapse-notification"
@@ -93,96 +63,86 @@
             ></button>
           </div>
         </div>
-
-        <a
-          title="Důležité oznámení"
-          class="collapse collapse-notification position-fixed start-0 top-0 mt-4 ms-4 bell-icon"
-          data-bs-toggle="collapse"
-          href=".collapse-notification"
-          role="button"
-          aria-expanded="false"
-          aria-controls="notification"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            class="bi bi-bell-fill"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"
-            />
-          </svg>
-        </a>
       </div>
 
-      <div class="row h-100">
-        <div class="col-xs-12 col-md-5 col-xl" style="background-color: green">
-          <h1>Ahoj</h1>
-          <p>Jak se máte? Bla bla</p>
-        </div>
-        <div
-          class="col-xs-12 col-md-7 col-xl left-content"
-          style="background-color: orange; height: 2000px"
+      <a
+        title="Důležité oznámení"
+        class="position-fixed top-0 end-0 bell-icon mt-3 me-3"
+        data-bs-toggle="collapse"
+        href=".collapse-notification"
+        role="button"
+        aria-expanded="false"
+        aria-controls="notification"
+        style="cursor: pointer"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          class="bi bi-bell-fill"
+          viewBox="0 0 16 16"
         >
-          <h1>Ahoj</h1>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
-          <p>Jak se máte? Bla bla</p>
+          <path
+            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"
+          />
+        </svg>
+      </a>
+      <!-- Notification row end -->
+
+      <!-- Right row -->
+      <div class="h-100">
+        <div class="left-content p-5" style="">
+          <!-- <section
+            class="h-100 position-relative"
+            style="background-color: var(--main-bg-color-transparent0)"
+          >
+            <h1 class="DancingScriptBold names mt-3">
+              Monika
+              <br />
+              a
+              <br />
+              Milan
+            </h1>
+
+            <div class="position-absolute bottom-0 start-0">
+              <p class="fs-3 text DancingScriptBold mt-3">
+                Rádi bychom vám oznámili, že se budeme brát!
+              </p>
+              
+            </div>
+          </section> -->
+        </div>
+        <!-- Right row end-->
+
+        <div class="right-content p-3 position-relative h-100">
+          <div
+            class="invisible position-absolute top-50 start-0 end-0 translate-middle-y p-3"
+          >
+            <h1>Sekce pro hosty</h1>
+            <div class="input-group mb-3">
+              <span class="input-group-text item-web" id="basic-addon1"
+                >Pozvánka:</span
+              >
+              <input
+                id="input-password"
+                type="password"
+                class="form-control focused-web item-web"
+                placeholder="Heslo"
+                aria-label="Heslo"
+                aria-describedby="heslo"
+                aria-required="true"
+                required="required"
+              />
+              <button
+                id="btn-password"
+                type="button"
+                class="btn btn-outline-primary btn-web focused-web"
+              >
+                Odeslat
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -192,6 +152,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script></script>
+    <script src="./assets/code.js" type="module"></script>
   </body>
 </html>
