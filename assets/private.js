@@ -83,6 +83,7 @@ const getQueryParamValue = (param) => {
     const [name, value] = pair.split('=')
 
     if (name === param) {
+      history.replaceState(null, document.title, '/')
       return value
     }
   }
