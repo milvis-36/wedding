@@ -1,0 +1,29 @@
+section .icon-box .bi {
+  flex-basis: 35px;
+  margin: 0 20px 0 20px;
+  font-size: 30px;
+}
+
+section .icon-box .bi.bi-contrast {
+  background: var(--secondary-bg-color);
+  border-radius: 14px;
+  fill: var(--main-color);
+}
+
+section .icon-box {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-bottom: 16px;
+}
+
+section .icon-box .icon-box-text {
+  flex: 1;
+  text-align: justify;
+}
+
+section .icon-box .icon-box-text .icon-box-heading {
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
+}

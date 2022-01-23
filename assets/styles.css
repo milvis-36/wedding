@@ -1,14 +1,21 @@
+@import url('./notifications.css');
+@import url('./carousel.css');
+@import url('./section-questions.css');
+@import url('./program.css');
+
 :root {
-  /* --main-bg-color: #ffd9e4; */
-  --main-bg-color: #f68a7c;
+  --main-bg-color: #507c5f;
+  --secondary-bg-color: #f9d7c9;
+  --secondary-bg-color-contrast: #fa8b7f;
 
   --main-bg-color-transparent: #ffd9e478;
 
-  /* --main-color: #034537; */
   --main-color: #034537;
   --main-color-accent: #b7ebe0;
 
   --main-content-width: 600px;
+
+  --navbar-height: 20px;
 
   scrollbar-width: thin;
   scrollbar-color: var(--main-color) var(--main-color-accent);
@@ -24,37 +31,99 @@
 }
 
 body {
-  background-color: var(--main-bg-color);
+  background: linear-gradient(255deg, var(--main-bg-color), white);
   color: var(--main-color);
+  font-family: LoraRegular, DancingScriptBold;
+}
+
+body * {
+  scroll-margin-top: var(--navbar-height);
+}
+
+hr {
+  width: 90%;
+  margin: auto;
 }
 
 .left-content {
   color: var(--main-color-accent);
+  background-color: white;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
-  min-height: 500px;
   right: var(--main-content-width);
   background-image: url('./images/invitation.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-shadow: 2px 2px 7px #886d4e;
+  border-right: solid var(--main-color) 1px;
+}
+
+.countdown-div {
+  border: solid 1px var(--secondary-bg-color-contrast);
+  border-radius: 10px;
+  background-color: var(--secondary-bg-color);
+  margin-bottom: 5px;
+  bottom: 35px !important;
+  width: 95%;
+  max-width: 350px;
+}
+
+#countdown {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.section {
+  text-align: center;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.section-login {
+  text-align: center;
+  background-image: url('./images/bkg.png');
+  background-position: center top;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  min-height: 665px;
+  height: 100vh;
+}
+
+.section-heading {
+  margin-top: 45px;
+  margin-bottom: 25px;
+  font-family: DancingScriptBold;
+  font-size: 42px;
+}
+
+.section .bi {
+  margin-top: 25px;
+}
+
+.section-1 {
+  text-align: center;
+  height: 100vh;
+  background-image: url('./images/bkg.png');
+  background-position: center top;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  min-height: 665px;
+}
+
+.scroll-top-0 {
+  scroll-margin-top: 0;
+}
+
+.section-rsvp {
+  height: 100vh;
+  min-height: 650px;
 }
 
 .right-content {
   min-width: var(--main-content-width);
   margin-left: calc(100% - var(--main-content-width));
-
-  /*background-image: url('./images/pivonka2-medium.png');*/
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  border-left: solid var(--main-color) 1px;
-}
-
-.names {
-  font-size: 80px;
 }
 
 .item-web {
@@ -78,15 +147,97 @@ body {
   box-shadow: 0 0 0 2px var(--main-color-accent);
 }
 
-@media screen and (max-width: 1150px) {
+.menu-bar {
+  width: 100%;
+  z-index: 2000;
+  top: 0;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.nav {
+  z-index: 2000;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item.active {
+  border-bottom: 2px solid var(--main-color);
+}
+
+.input-group {
+  max-width: 450px;
+  margin: auto;
+}
+
+.nav-link i.bi {
+  margin-right: 22px;
+}
+
+section svg.bi,
+.bi-pink {
+  fill: var(--secondary-bg-color);
+}
+
+section i.bi {
+  color: var(--secondary-bg-color);
+  font-size: 48px;
+  margin-top: 25px;
+}
+
+#mobileMenu.btn-light {
+  scroll-margin-top: 5px;
+  background-color: var(--secondary-bg-color);
+  border-color: var(--secondary-bg-color-contrast);
+}
+
+ul.dropdown-menu {
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.dropdown-item {
+  font-size: 24px;
+}
+
+.dropdown-item.active {
+  background-color: var(--secondary-bg-color);
+}
+
+.nav-link,
+.nav-link:visited {
+  color: var(--main-color);
+}
+
+@media screen and (max-width: 1360px) {
+  body {
+    min-width: 300px;
+  }
+
   .left-content {
     position: relative;
     width: 100%;
     border-right-style: unset;
     background-size: initial;
+    border-bottom: solid var(--main-color) 1px;
+    right: 0;
+    background-image: url('./images/invitation-md.png');
+    background-size: contain;
+    background-position: center top;
+    height: 47vw;
+    max-height: 410px;
   }
 
   .right-content {
+    min-width: 300px;
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .left-content {
+    background-image: url('./images/invitation-sm.png');
+    background-size: cover;
+    height: 63vw;
   }
 }

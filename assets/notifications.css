@@ -1,9 +1,11 @@
 .bell-icon {
-  background-color: var(--main-bg-color);
-  box-shadow: 0px 0px 15px 15px var(--main-bg-color);
+  /* background-color: var(--main-bg-color); */
+  /* box-shadow: 0px 0px 15px 15px var(--main-bg-color); */
   border-radius: 50px;
   color: var(--main-color);
-  z-index: 10;
+  z-index: 2010;
+  height: 32px;
+  width: 32px;
 }
 
 .bell-icon:hover {
@@ -38,5 +40,12 @@
 }
 
 .notification-div {
-  z-index: 100;
+  z-index: 2010;
+}
+
+@media screen and (max-width: 1150px) {
+  .bell-icon > svg.bi-bell-fill {
+    height: 32px;
+    width: 32px;
+  }
 }

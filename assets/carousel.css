@@ -1,0 +1,41 @@
+section .carousel {
+  max-width: 570px;
+  width: 100%;
+  margin: 5px auto 15px auto;
+}
+
+section .carousel .carousel-item {
+  max-height: 377px;
+}
+
+section .carousel .carousel-item .carousel-caption {
+  color: var(--secondary-bg-color);
+  backdrop-filter: blur(2px);
+  padding: 0;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 0 7px black;
+  font-weight: 400;
+}
+
+section .carousel .carousel-item .carousel-caption.top {
+  top: 0;
+  bottom: initial;
+}
+
+section .carousel .carousel-item.portrait img {
+  height: 377px;
+  width: auto !important;
+  margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+  section .carousel .carousel-item {
+    max-height: 285px;
+    height: 285px;
+  }
+
+  section .carousel .carousel-item .carousel-caption h5 {
+    font-size: 14px;
+  }
+}

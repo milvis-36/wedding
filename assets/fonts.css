@@ -8,6 +8,11 @@
   src: url('./fonts/DancingScript-Bold.ttf');
 }
 
+@font-face {
+  font-family: 'LoraRegular';
+  src: url('./fonts/Lora-Regular.ttf');
+}
+
 .DancingScriptRegular {
   font-family: DancingScriptRegular;
 }

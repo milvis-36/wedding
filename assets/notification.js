@@ -1,7 +1,7 @@
 const notificationRootSelector = '.notification-div'
 const localStorageKey = 'notif'
 
-export const fetchNotification = (url) => {
+export const notificationModule = (url) => {
   const target = document.querySelector(notificationRootSelector)
 
   fetch(url)
@@ -13,32 +13,33 @@ export const fetchNotification = (url) => {
       return r.json()
     })
     .then((data) => {
-      if (!data) {
+      if (!data || !data.id) {
         return
       }
 
+      document
+        .querySelector('.toggle-notification')
+        .classList.remove('invisible')
+
       const { id, content } = data
+      target.querySelector('.notification-content').innerHTML = content
       const readNotificationId = localStorage.getItem(localStorageKey)
       if (id === readNotificationId) {
         return
       }
 
       target.dataset.id = id
-      target.classList.remove('invisible')
-      target.querySelector('.notification-content').textContent = content
+      target.classList.add('show')
     })
 }
 
 window.addEventListener('click', (e) => {
-  if (
-    e.target !==
-    document.querySelector(`${notificationRootSelector} .btn.btn-close`)
-  ) {
+  const { target } = e
+  if (target.matches(`${notificationRootSelector} .btn.btn-close`)) {
+    localStorage.setItem(
+      localStorageKey,
+      document.querySelector(notificationRootSelector).dataset.id
+    )
     return
   }
-
-  localStorage.setItem(
-    localStorageKey,
-    document.querySelector(notificationRootSelector).dataset.id
-  )
 })

@@ -11,8 +11,8 @@ const notAllowed = (input) => {
 }
 
 const showPasswordInput = (guestRootSelector) => {
-  const content = document.querySelector(`${guestRootSelector} > div`)
-  content.classList.remove('invisible')
+  const content = document.querySelector(`${guestRootSelector} .section-login`)
+  content && content.classList.remove('d-none')
 }
 
 const handleSubmit = (guestRootSelector, value) => {
@@ -37,7 +37,7 @@ const handleSubmit = (guestRootSelector, value) => {
       if (!data) {
         return
       }
-      const { content, hash } = data
+      const { content, hash, seed, padding } = data
 
       if (hash !== MD5(password)) {
         notAllowed(input)
@@ -47,8 +47,33 @@ const handleSubmit = (guestRootSelector, value) => {
 
       localStorage.setItem(passwordLocalStorageKey, password)
 
-      const rootElement = document.querySelector(guestRootSelector)
-      rootElement.innerHTML = content
+      const iv = base64ToArrayBuffer(seed)
+      const enc = base64ToArrayBuffer(content)
+      const passPhrase =
+        password.length < 16
+          ? `${password}${padding.repeat(16 - password.length)}`
+          : passPhrase
+      const pkey = strEncodeUTF8(passPhrase)
+
+      crypto.subtle
+        .importKey('raw', pkey, 'AES-CBC', false, ['decrypt'])
+        .then((key) => {
+          window.crypto.subtle
+            .decrypt(
+              {
+                name: 'AES-CBC',
+                iv,
+              },
+              key,
+              enc
+            )
+            .then((base64contentBytes) => {
+              const rootElement = document.querySelector(guestRootSelector)
+              rootElement.innerHTML = new TextDecoder().decode(
+                base64contentBytes
+              )
+            })
+        })
     })
 }
 
@@ -72,6 +97,20 @@ const autoLogin = (guestRootSelector) => {
     return
   }
   showPasswordInput(guestRootSelector)
+}
+
+const base64ToArrayBuffer = (base64) => {
+  const binary_string = window.atob(base64)
+  return strEncodeUTF8(binary_string)
+}
+
+const strEncodeUTF8 = (str) => {
+  const buf = new ArrayBuffer(str.length)
+  const bufView = new Uint8Array(buf)
+  for (let i = 0, strLen = str.length; i < strLen; i++) {
+    bufView[i] = str.charCodeAt(i)
+  }
+  return bufView
 }
 
 export const guestsModule = (guestRootSelector) => {
