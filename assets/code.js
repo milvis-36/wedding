@@ -1,6 +1,7 @@
 import { countdownModule } from './countdown.js'
 import { navigationModule } from './navigation.js'
 import { notificationModule } from './notification.js'
+import { photoModule } from './photo.js'
 import { guestsModule } from './private.js'
 
 const weddingDate = new Date(2022, 5, 25, 13, 0)
@@ -10,6 +11,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   notificationModule('./data/notification.json')
   navigationModule('.nav-link', '#mobileMenu')
   guestsModule('.right-content')
+  photoModule()
 })
 
 window.addEventListener('click', (e) => {

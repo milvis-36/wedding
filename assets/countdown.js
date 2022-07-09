@@ -20,13 +20,14 @@ export const calcTimeRemaining = () => {
   // get total seconds between the times
   let delta = (weddingDate - new Date().getTime()) / 1000
 
-  if (delta <= 0) {
-    countdownElement &&
-      (countdownElement.textContent = 'Svatba proběhla, děkujeme.')
-  }
-
   // calculate (and subtract) whole days
   const days = Math.floor(delta / 86400)
+
+  if (delta <= 0) {
+    countdownElement &&
+      (countdownElement.textContent = `Už jsme svoji ${days * -1} dnů!`)
+    return
+  }
   delta -= days * 86400
 
   // calculate (and subtract) whole hours

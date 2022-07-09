@@ -17,6 +17,9 @@ const showPasswordInput = (guestRootSelector) => {
 
 const handleSubmit = (guestRootSelector, value) => {
   const input = document.querySelector(`#${passwordInputId}`)
+  if (!input) {
+    return
+  }
   const password = input.value || value
 
   if (!password) {
